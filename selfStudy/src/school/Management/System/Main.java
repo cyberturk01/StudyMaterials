@@ -22,7 +22,7 @@ public class Main {
 		studentList.add(zeynep);
 		
 		Teacher megan= new Teacher(4, "Megan", 750);
-		Student sultan= new Student(4, "Sultan", 4);
+		Student ali= new Student(4, "Ali", 4);
 		School ghs= new School(teacherList, studentList);
 		ghs.addTeacher(megan);
 		
