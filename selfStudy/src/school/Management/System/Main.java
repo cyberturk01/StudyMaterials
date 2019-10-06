@@ -29,6 +29,7 @@ public class Main {
 		nuran.payFees(5000);
 		gokhan.payFees(4000);
 		zeynep.payFees(7000);
+		ali.payFees(2000);
 		System.out.println("GHS earned $:"+ghs.getTotalMoneyEarned());
 		
 		
