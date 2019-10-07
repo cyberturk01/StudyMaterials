@@ -15,18 +15,18 @@ public class SmallestGreatestNum {
 		System.out.print("Enter your first number: ");
 		num1= sc.nextInt();
 		smallest=num1; // first number assigned to smallest number
-			while(flag) {			
-				System.out.print("Enter your next Number: ");
-				num2=sc.nextInt();
-				if(num2>largest) {// compare num2 with largest 
-					largest=num2; //largest bucket gets the num2 values
-				}
-				if(num2<smallest) {// compare num2 with smallest which is num1 at the beginning 
-					smallest=num2;//smallest bucket gets the num2 values
-				}
-				System.out.print("Do you want to enter another number: 0-No, 1-Yes ");
-				selection=sc.nextInt();
-				choose(selection, smallest, largest);// call the choose method
+		while(flag) {			
+			System.out.print("Enter your next Number: ");
+			num2=sc.nextInt();
+			if(num2>largest) {// compare num2 with largest 
+				largest=num2; //largest bucket gets the num2 values
+			}
+			if(num2<smallest) {// compare num2 with smallest which is num1 at the beginning 
+				smallest=num2;//smallest bucket gets the num2 values
+			}
+			System.out.print("Do you want to enter another number: 0-No, 1-Yes ");
+			selection=sc.nextInt();
+			choose(selection, smallest, largest);// call the choose method
 		}
 		sc.close();
 	}

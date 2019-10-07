@@ -7,7 +7,7 @@ public class Palindrome {
 		System.out.println( hasBad("racecar"));
 		System.out.println( hasBad("racecat"));
 		System.out.println( hasBad("Taco cat"));
-		
+		System.out.println( hasBad("abccba"));
 	}
 	public static boolean hasBad(String a) {
 			
