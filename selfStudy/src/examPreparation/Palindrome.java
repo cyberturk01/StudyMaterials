@@ -2,24 +2,24 @@ package examPreparation;
 
 public class Palindrome {
 	public static void main(String[] args) {
-		System.out.println( hasBad("level"));
-		System.out.println( hasBad("wow"));
-		System.out.println( hasBad("racecar"));
-		System.out.println( hasBad("racecat"));
-		System.out.println( hasBad("Taco cat"));
-		System.out.println( hasBad("abccba"));
+		System.out.println( palindrome("level"));
+		System.out.println( palindrome("wow"));
+		System.out.println( palindrome("racecar"));
+		System.out.println( palindrome("racecat"));
+		System.out.println( palindrome("Taco cat"));
+		System.out.println( palindrome("abccba"));
 	}
-	public static boolean hasBad(String a) {
-			
-			String b="";
-			for (int i = a.length()-1; i>=0; i--) {
-				b+=a.charAt(i);
+	public static boolean palindrome(String str) {
+			String str2="";
+			for (int i = str.length()-1; i>=0; i--) {
+				str2+=str.charAt(i);				
 			}
-			if(a.replace(" ","").equalsIgnoreCase(b.replace(" ", ""))) {
+			if(str.replace(" ","").equalsIgnoreCase(str2.replace(" ", ""))) {
 				return true;
-			}else {
-				return false;
 			}
-			
+			return false;
+	}
+	public static void print() {
+		System.out.println("Hello");
 	}
 }

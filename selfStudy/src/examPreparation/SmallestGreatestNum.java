@@ -9,7 +9,8 @@ public class SmallestGreatestNum {
 		int num1;
 		int num2;
 		int selection;
-		int largest=0;
+		int largest=Integer.MIN_VALUE;
+		System.out.println(largest);
 		int smallest=0;
 		Scanner sc= new Scanner(System.in);
 		System.out.print("Enter your first number: ");

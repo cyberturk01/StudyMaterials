@@ -1,12 +1,11 @@
 package examPreparation;
 
-public class PrimeNumber {
+public class PrimeNumber { // sadece kendine ve 1 e bolunebilen 
 	public static void main(String[] args) {
-		System.out.println(isPrime(97));
-			
+		System.out.println(isPrime(19));
+		System.out.println(isPrime(3));
+		System.out.println(isPrime(1));
 	}
-	
-	
 	public static boolean isPrime(int num) {
 		if(num<=1) {
 			return false;
@@ -17,6 +16,5 @@ public class PrimeNumber {
 			}	
 		}		
 		return true;
-	}
-	
+	}	
 }

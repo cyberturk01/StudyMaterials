@@ -4,14 +4,16 @@ public class Fibonacci {
 	public static void main(String[] args) {
 		
 		int count =8;
-		int pre1=0, pre2=1;
+		int num1=0, num2=1;
 		System.out.println("Fibonacci series of "+count+" numbers");
-		for (int i = 1; i < count; i++) {
-			System.out.print(pre2+ " ");
+		System.out.print(num1+" "+ num2 +" ");
+		for (int i = 0; i < count; i++) {
+			int temp=num1+num2;
+			num1=num2;
+			num2=temp;
+			System.out.print(num2+ " ");
+//			0 1 1 2 3 5 8 13 21 34
 			
-			int sumOfPrevTwo=pre1+pre2;
-			pre1=pre2;
-			pre2=sumOfPrevTwo;
 		}
 	}
 }
