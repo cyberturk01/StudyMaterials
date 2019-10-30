@@ -1,5 +1,6 @@
 package groceryApp;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UpgradedGroceryApp {
@@ -13,22 +14,25 @@ public class UpgradedGroceryApp {
 	private static void wannaRunAgain() {
 		printInstructions();
 		int choice;
-		do {
-			System.out.println("Enter your choice: ");
-			choice=sc.nextInt();
-			sc.nextLine();
-			switch (choice) {
-			case 0: 	printInstructions();		break;
-			case 1: 	printList();				break;
-			case 2: 	addItem();					break;
-			case 3: 	modifyItem();				break;
-			case 4: 	removeItem();				break;
-			case 5: 	searchItem();				break;
-			case 6: 	quitApp();					break;
-			default:
-				throw new IllegalArgumentException("Unexpected value: " + choice);
+		try {
+			while(!flag) {
+				System.out.println("Enter your choice: ");
+				choice=sc.nextInt();
+				sc.nextLine();
+				switch (choice) {
+				case 0: 	printInstructions();		break;				
+				case 1: 	printList();				break;
+				case 2: 	addItem();					break;
+				case 3: 	modifyItem();				break;
+				case 4: 	removeItem();				break;
+				case 5: 	searchItem();				break;
+				case 6: 	quitApp();					break;
+				}
 			}
-		}while(!flag);		
+		} catch (InputMismatchException e) {
+			System.out.println("You should enter numbers 1 to 6");
+			
+		}	
 	}
 
 	private static void quitApp() {
@@ -37,49 +41,69 @@ public class UpgradedGroceryApp {
 			Thread.sleep(2000);
 			System.out.println("System is closed!");
 			flag=true;
-		} catch (Exception e) {
+		} catch (Exception e) {			
 			System.out.println("There was a problem in the system!"+e.getStackTrace());
 		}
+		
 	}
 	private static void searchItem() {
-		System.out.println("Enter item to search for: ");
-		String item=sc.nextLine();		
-		if(groceryList.findItem(item)){
-			System.out.println("Found "+ item +" in our grocery list");
-		}else {
-			System.out.println("Item could not be found!");
+		try {
+			System.out.println("Enter item to search for: ");
+			String item=sc.nextLine();	
+			item=item.substring(0,1).toUpperCase()+""+item.substring(1).toLowerCase();
+			if(groceryList.findItem(item)){
+				System.out.println("Found "+ item +" in our grocery list in number :"+(groceryList.groceryList.indexOf(item)+1));
+			}else {
+				System.out.println("Item could not be found!");
+			}
+		} catch (StringIndexOutOfBoundsException e) {
+			System.out.println("You should enter a valid data, Empty data is not allowed!");
 		}
 	}
 	private static void removeItem() {
 		System.out.println("Enter item number that you want to delete");
 		int itemNo=sc.nextInt();
-		if(groceryList.removeItem(itemNo-1)) {
-			System.out.println("Your item "+itemNo+" has been succesfully deleted");
-		}else {
-			System.out.println("Invalid data entered!");
+		try {
+			if(groceryList.removeItem(itemNo-1)) {
+				System.out.println("Your item "+itemNo+" has been succesfully deleted");
+			}else if(groceryList.groceryList.size()==0) {
+				System.out.println("There is no data to erase in the database!");
+			}	
+		} catch (IndexOutOfBoundsException e) {
+			  System.out.println("Invalid indexes or empty ArrayList");
 		}
 	}
 	private static void modifyItem() {
-		System.out.println("Enter item number that you want to edit:");
-		int itemNo=sc.nextInt();
-		sc.nextLine();
-		System.out.println("Enter replacement item:");
-		String newItem=sc.nextLine();
-		newItem=newItem.substring(0,1).toUpperCase()+""+newItem.substring(1);
-		if(groceryList.modifyItem(itemNo-1,newItem)) {
-			System.out.println("Your item "+newItem+" has been succesfully modified");	
-		}else {
-			System.out.println("Invalid data entered!");
+		try {
+			System.out.println("Enter item number that you want to edit:");
+			int itemNo=sc.nextInt();
+			sc.nextLine();
+			System.out.println("Enter replacement item:");
+			String newItem=sc.nextLine();
+			newItem=newItem.substring(0,1).toUpperCase()+""+newItem.substring(1).toLowerCase();
+			if(groceryList.modifyItem(itemNo-1,newItem)) {
+				System.out.println("Your item "+newItem+" has been succesfully modified");	
+			}else {
+				System.out.println("Invalid data entered!");
+			}
+		}  catch (StringIndexOutOfBoundsException e) {
+			System.out.println("You should enter a valid data, Empty data is not allowed!");
 		}
+		
 	}
 	private static void addItem() {
-		System.out.println("Please enter the grocery item:");
-		String item=sc.nextLine();
-		item=item.substring(0,1).toUpperCase()+""+item.substring(1);
-		if(groceryList.addGroceryItem(item)) {
-			System.out.println("Your item "+item+" has been succesfully added");	
-		}else {
-			System.out.println("Invalid data entered!");
+		try {
+			System.out.println("Please enter the grocery item:");
+			String item=sc.nextLine();
+			item=item.substring(0,1).toUpperCase()+""+item.substring(1).toLowerCase();
+		
+			if(groceryList.addGroceryItem(item)) {
+				System.out.println("Your item "+item+" has been succesfully added");	
+			}else {
+				System.out.println("Please enter a valid data!");
+			}
+		} catch (StringIndexOutOfBoundsException e) {
+			System.out.println("You should enter a valid data, Empty data is not allowed!");
 		}
 	}
 	private static void printList() {

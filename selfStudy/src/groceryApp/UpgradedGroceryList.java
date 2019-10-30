@@ -7,10 +7,19 @@ public class UpgradedGroceryList {
 	
 	public boolean addGroceryItem(String item) {
 		if(!(item.equalsIgnoreCase(""))) {
-			groceryList.add(item);
-			return true;
+			if(itemExist(item)) {
+				groceryList.add(item);
+				return true;	
+			}
 		}
-		return false;
+		return false;	
+	}
+	public boolean itemExist(String item) {		
+		if(groceryList.contains(item)&& groceryList.size()>=1) {			
+			System.out.println("Item is already in the database");
+			return false;
+		}
+		return true;
 	}
 
 	public void printList() {
