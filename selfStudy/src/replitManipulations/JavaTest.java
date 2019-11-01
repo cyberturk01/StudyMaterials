@@ -1,4 +1,4 @@
-package replit;
+package replitManipulations;
 
 public class JavaTest {
 

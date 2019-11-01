@@ -1,4 +1,4 @@
-package replit;
+package replitArrays;
 
 public class UtopianTree116 {
 

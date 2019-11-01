@@ -1,4 +1,4 @@
-package replit;
+package replitIFCases;
 
 import java.util.Scanner;
 

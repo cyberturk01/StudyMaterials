@@ -1,4 +1,4 @@
-package replit;
+package replitIFCases;
 
 import java.util.Scanner;
 
@@ -47,11 +47,8 @@ public class CoinMoneyChanger {
 		amount%=5;
 		int pennies= amount;
 		
-		
 		return ("You have "+quarter+" quarter "+ dimes+" dimes "
 							+nickles+" nickles "+ pennies+ " pennies ");
-		
-		
 	}
 	public static String changeAmount(int itemPrice) {
 		  if(itemPrice<=25 || itemPrice>=100){

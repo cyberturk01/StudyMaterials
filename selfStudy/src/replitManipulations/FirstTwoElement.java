@@ -1,4 +1,4 @@
-package replit;
+package replitManipulations;
 
 import java.util.Arrays;
 import java.util.Scanner;
