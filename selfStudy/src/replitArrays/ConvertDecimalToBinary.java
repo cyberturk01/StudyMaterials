@@ -9,9 +9,9 @@ public class ConvertDecimalToBinary {
 	    int decimal = input.nextInt();
 	    int[] binary = new int[8];
 	    
-	    for (int i = 0; i < binary.length; i++) {
-			binary[i]=0;
-	    }	
+//	    for (int i = 0; i < binary.length; i++) {
+//			binary[i]=0;
+//	    }	
 	    int pow=8;
 	    int pow2=7;
     	for (int i = 0; i < binary.length; i++) {
