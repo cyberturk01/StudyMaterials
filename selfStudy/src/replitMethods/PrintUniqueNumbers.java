@@ -9,8 +9,7 @@ public class PrintUniqueNumbers {
 		printUniqueNumbers(nums);
 	}
 	public static void printUniqueNumbers(int[] arr) {
-		List<Integer> list= new ArrayList<Integer>();
-		
+		List<Integer> list= new ArrayList<Integer>();		
 		for (int i = 0; i < arr.length; i++) {
 			int count=0;	
 			for (int j =0; j < arr.length; j++) {
